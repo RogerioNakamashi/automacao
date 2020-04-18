@@ -34,6 +34,13 @@ const dashboardStyle = {
       marginLeft: "3px"
     }
   },
+  savingsModal: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: 'white',
+    border: '2px solid #000',
+    alignSelf: 'center'
+  },
   cardCategory: {
     color: grayColor[0],
     margin: "0",
