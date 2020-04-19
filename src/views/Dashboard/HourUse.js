@@ -14,7 +14,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import DateFnsUtils from '@date-io/date-fns';
+import getDate from '@date-io/date-fns';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -33,56 +33,51 @@ import {Years, Months, MonthIndex} from './constants.js';
 import axios from 'axios';
 const useStyles = makeStyles(styles);
 
-export default function MonthUse(){
+export default function HourUse(){
   const classes = useStyles();
-  const [year, setYear] = useState(2020);
-  const [useList, setUseList] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2020-04-19T21:11:54'));
+  const [series, setSeries] = React.useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0, 0])
 
-  const handleChange = (event) => {
-    const year = event.target.value
-    setYear(year);
-    updateUseList(); 
+  const handleDateChange = (_date) => {
+    setSelectedDate(_date);
+    updateSeries(_date);
   }
-
-  const updateUseList = () => {
-    axios.put('http://www.mocky.io/v2/5e9bb88a3300009532bf17fe', {data: {year: year}})
+  const updateSeries = (_date) => {
+    axios.put('http://www.mocky.io/v2/5e9bb8b93300006100bf17ff', {data: {year: _date.getFullYear(), month: _date.getMonth()+1, day: _date.getDate()}})
     .then(response => {
-      setUseList(response.data.data);
+      setSeries(response.data.data);
     })
   }
-
-  useEffect(updateUseList, [year]);
-
+  useEffect(() => {updateSeries(selectedDate);}, [selectedDate]);
     return(
       <Card chart>
-        <CardHeader color="warning">
+        <CardHeader color="danger">
           <ChartistGraph
             className="ct-chart"
-            data={{labels: emailsSubscriptionChart.data.labes, series: [useList]}}
-            type="Bar"
-            options={emailsSubscriptionChart.options}
-            responsiveOptions={emailsSubscriptionChart.responsiveOptions}
-            listener={emailsSubscriptionChart.animation}
+            data={{labels: completedTasksChart.data.labels, series: [series]}}
+            type="Line"
+            options={completedTasksChart.options}
+            listener={completedTasksChart.animation}
             />
         </CardHeader>
         <CardBody>
-          <h4 className={classes.cardTitle}>Consumo mensal</h4>
-          <p className={classes.cardCategory}>KWh</p>
+          <h4 className={classes.cardTitle}>Energia consumida</h4>
+          <p className={classes.cardCategory}>Consumo dário</p>
         </CardBody>
         <CardFooter chart>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="demo-simple-select-outlined-label">Ano</InputLabel>
-            <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              value={year}
-              onChange={handleChange}
-              label="ano"
-            >
-              <MenuItem value={2019}>2019</MenuItem>
-              <MenuItem value={2020}>2020</MenuItem>
-            </Select>
-          </FormControl>
+          <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/dd/yyyy"
+              margin="normal"
+              id="date-picker-inline"
+              label="Date picker inline"
+              value={selectedDate}
+              onChange={handleDateChange}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
         </CardFooter>
       </Card>
     )

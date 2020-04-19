@@ -136,7 +136,7 @@ const emailsSubscriptionChart = {
 
 const completedTasksChart = {
   data: {
-    labels: ["12am", "3pm", "6pm", "9pm", "12pm", "3am", "6am", "9am"],
+    labels: ["12am", false, false, false, false, false, "6am", false, false, false, false, false, "12pm", false, false, false, false, false, "6pm", false, false, false, false, false, false],
     series: [[23, 45, 45, 30, 28, 24, 20, 19]]
   },
   options: {
@@ -144,7 +144,7 @@ const completedTasksChart = {
       tension: 0
     }),
     low: 0,
-    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 10, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,
