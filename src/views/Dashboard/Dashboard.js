@@ -28,60 +28,18 @@ import {
   emailsSubscriptionChart,
   completedTasksChart
 } from "variables/charts.js";
-
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import Savings from './Savings.js'
 
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
   const classes = useStyles();
-  const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-  const years = [2019, 2020]; 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Store />
-              </CardIcon>
-              <p className={classes.cardCategory}>Economia</p>
-              <h3 className={classes.cardTitle}>R$94,24</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel id="demo-simple-select-outlined-label">Mês</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2020}
-                    // onChange={handleChange}
-                    label="ano"
-                  >
-                    {months.map(item => 
-                      <MenuItem value={item}>{item}</MenuItem>
-                    )}
-                  </Select>
-                </FormControl>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel id="demo-simple-select-outlined-label">Ano</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={2020}
-                    // onChange={handleChange}
-                    label="ano"
-                    >
-                    {years.map(item => 
-                      <MenuItem value={item}>{item}</MenuItem>
-                    )}
-                  </Select>
-                </FormControl>
-              </div>
-            </CardFooter>
-          </Card>
+          <Savings />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
