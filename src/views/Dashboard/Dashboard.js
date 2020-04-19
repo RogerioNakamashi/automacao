@@ -31,6 +31,7 @@ import {
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import Savings from './Savings.js'
 import MonthlyCoast from "./MonthyCoast.js";
+import ProducedEnergy from "./ProducedEnergy.js";
 
 const useStyles = makeStyles(styles);
 
@@ -43,36 +44,12 @@ export default function Dashboard() {
           <Savings />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          {/* <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
-                <Icon>info_outline</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Valor da contDSa</p>
-              <h3 className={classes.cardTitle}>R$128,30</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <KeyboardDatePicker
-                disableToolbar
-                variant="inline"
-                format="MM/dd/yyyy"
-                margin="normal"
-                id="date-picker-inline"
-                label="Date picker inline"
-                // value={selectedDate}
-                // onChange={handleDateChange}
-                KeyboardButtonProps={{
-                  'aria-label': 'change date',
-                }}
-              />
-            </CardFooter>
-          </Card> */}
           <MonthlyCoast/>
         </GridItem>
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
-          <Card chart>
+          {/* <Card chart>
             <CardHeader color="success">
               <ChartistGraph
                 className="ct-chart"
@@ -106,7 +83,8 @@ export default function Dashboard() {
                   }}
                 />
             </CardFooter>
-          </Card>
+          </Card> */}
+          <ProducedEnergy />
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>

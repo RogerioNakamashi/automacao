@@ -56,7 +56,6 @@ export default function Monthlycost(){
   const updatecostList = (_month, _year) => {
     axios.put('http://www.mocky.io/v2/5e9bb8e53300009532bf1802', {data: {year: _year, month: _month}})
     .then(response => {
-      console.log(response.data.data)
       setcost(response.data.data.monthly_cost);
     })
   }
