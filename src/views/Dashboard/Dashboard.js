@@ -30,6 +30,7 @@ import {
 } from "variables/charts.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import Savings from './Savings.js'
+import MonthlyCoast from "./MonthyCoast.js";
 
 const useStyles = makeStyles(styles);
 
@@ -42,12 +43,12 @@ export default function Dashboard() {
           <Savings />
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
-          <Card>
+          {/* <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
                 <Icon>info_outline</Icon>
               </CardIcon>
-              <p className={classes.cardCategory}>Valor da conta</p>
+              <p className={classes.cardCategory}>Valor da contDSa</p>
               <h3 className={classes.cardTitle}>R$128,30</h3>
             </CardHeader>
             <CardFooter stats>
@@ -65,7 +66,8 @@ export default function Dashboard() {
                 }}
               />
             </CardFooter>
-          </Card>
+          </Card> */}
+          <MonthlyCoast/>
         </GridItem>
       </GridContainer>
       <GridContainer>
