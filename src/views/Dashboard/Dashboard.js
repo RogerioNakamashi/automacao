@@ -32,6 +32,7 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 import Savings from './Savings.js'
 import MonthlyCoast from "./MonthyCoast.js";
 import ProducedEnergy from "./ProducedEnergy.js";
+import MonthUse from "./MonthUse.js";
 
 const useStyles = makeStyles(styles);
 
@@ -49,45 +50,10 @@ export default function Dashboard() {
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
-          {/* <Card chart>
-            <CardHeader color="success">
-              <ChartistGraph
-                className="ct-chart"
-                data={ProducedEnergyChart.data}
-                type="Line"
-                options={ProducedEnergyChart.options}
-                listener={ProducedEnergyChart.animation}
-                />
-            </CardHeader>
-            <CardBody>
-              <h4 className={classes.cardTitle}>Energia produzida</h4>
-              <p className={classes.cardCategory}>
-                <span className={classes.successText}>
-                  <ArrowUpward className={classes.upArrowCardCategory} /> 15%
-                </span>{" "}
-                acima da média dos dias anteriores.
-              </p>
-            </CardBody>
-            <CardFooter chart>
-              <KeyboardDatePicker
-                  disableToolbar
-                  variant="inline"
-                  format="MM/dd/yyyy"
-                  margin="normal"
-                  id="date-picker-inline"
-                  label="Date picker inline"
-                  // value={selectedDate}
-                  // onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    'aria-label': 'change date',
-                  }}
-                />
-            </CardFooter>
-          </Card> */}
           <ProducedEnergy />
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
-          <Card chart>
+          {/* <Card chart>
             <CardHeader color="warning">
               <ChartistGraph
                 className="ct-chart"
@@ -117,7 +83,8 @@ export default function Dashboard() {
                 </Select>
               </FormControl>
             </CardFooter>
-          </Card>
+          </Card> */}
+          <MonthUse />
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>
