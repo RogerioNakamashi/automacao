@@ -1,8 +1,4 @@
 import React from "react";
-// react plugin for creating charts
-// @material-ui/core
-import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import DateFnsUtils from '@date-io/date-fns';

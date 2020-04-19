@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from "react";
-// react plugin for creating charts
 import ChartistGraph from "react-chartist";
-// @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
