@@ -51,14 +51,14 @@ export default function Savings(){
   const handleYearChange = (event) => {
     const year = event.target.value
     setYear(year);
-    updateSavingsList();
+    updateSavingsList(); 
   }
 
   const updateSavingsList = () => {
     axios.put('http://www.mocky.io/v2/5e9bb98e3300006100bf1808', {data: {year: year}})
     .then(response => {
-      console.log(response.data.data);
-      setSavings(response.data.data[month].economy);
+      savingsList = response.data.data;
+      setSavings(savingsList[month].economy);
     })
   }
 
