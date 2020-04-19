@@ -14,6 +14,7 @@ import {
 } from "variables/charts.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import axios from 'axios';
+import { MONTH_USE_URL } from "urls";
 const useStyles = makeStyles(styles);
 
 export default function MonthUse(){
@@ -28,7 +29,7 @@ export default function MonthUse(){
   }
 
   const updateUseList = () => {
-    axios.put('http://www.mocky.io/v2/5e9bb88a3300009532bf17fe', {data: {year: year}})
+    axios.put(MONTH_USE_URL, {data: {year: year}})
     .then(response => {
       setUseList(response.data.data);
     })

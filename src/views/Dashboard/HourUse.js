@@ -13,6 +13,7 @@ import {
 } from "variables/charts.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import axios from 'axios';
+import { HOUR_USE_URL } from "urls.js";
 const useStyles = makeStyles(styles);
 
 export default function HourUse(){
@@ -25,7 +26,7 @@ export default function HourUse(){
     updateSeries(_date);
   }
   const updateSeries = (_date) => {
-    axios.put('http://www.mocky.io/v2/5e9bb8b93300006100bf17ff', {data: {year: _date.getFullYear(), month: _date.getMonth()+1, day: _date.getDate()}})
+    axios.put(HOUR_USE_URL, {data: {year: _date.getFullYear(), month: _date.getMonth()+1, day: _date.getDate()}})
     .then(response => {
       setSeries(response.data.data);
     })

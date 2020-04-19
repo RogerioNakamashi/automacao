@@ -12,6 +12,7 @@ import Select from '@material-ui/core/Select';
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import {Years, Months} from './constants.js';
 import axios from 'axios';
+import { SAVINGS_URL } from 'urls.js';
 const useStyles = makeStyles(styles);
 
 export default function Savings(){
@@ -34,7 +35,7 @@ export default function Savings(){
   }
 
   const updateSavingsList = () => {
-    axios.put('http://www.mocky.io/v2/5e9bb98e3300006100bf1808', {data: {year: year}})
+    axios.put(SAVINGS_URL, {data: {year: year}})
     .then(response => {
       savingsList = response.data.data;
       setSavings(savingsList[month].economy);

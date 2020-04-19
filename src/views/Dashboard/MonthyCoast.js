@@ -15,6 +15,8 @@ import Select from '@material-ui/core/Select';
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 import {Years, Months} from './constants.js';
 import axios from 'axios';
+import { MONTHLY_COST_URL } from 'urls.js';
+
 const useStyles = makeStyles(styles);
 
 export default function Monthlycost(){
@@ -36,7 +38,7 @@ export default function Monthlycost(){
   }
 
   const updatecostList = (_month, _year) => {
-    axios.put('http://www.mocky.io/v2/5e9bb8e53300009532bf1802', {data: {year: _year, month: _month}})
+    axios.put(MONTHLY_COST_URL, {data: {year: _year, month: _month}})
     .then(response => {
       setcost(response.data.data.monthly_cost);
     })
