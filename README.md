@@ -2,6 +2,7 @@
 Trabalho de Automação
 
 Grupo:
-Davidson Neres
+Davidson Neres,
 Maurício Uehara
+e
 Rogério Nakamashi
